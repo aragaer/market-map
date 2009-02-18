@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="mm.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://mm/locale/mm.dtd">
+
+<window id="main" title="&title;" width="800" height="600"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:svg="http://www.w3.org/2000/svg"
+	onload="onLoad();"
+	persist="screenX screenY width height sizemode">
+
+<script type="application/x-javascript" src="chrome://mm/content/general.js"/>
+	
+<script type="application/x-javascript" src="chrome://global/content/globalOverlay.js"/>
+<script type="application/x-javascript" src="chrome://global/content/nsDragAndDrop.js"/>
+<script type="application/x-javascript" src="chrome://mm/content/components/sqlite_db.js"/>
+<script type="application/x-javascript" src="chrome://mm/content/components/dbh.js"/>
+<script type="application/x-javascript" src="chrome://mm/content/actions.js"/>
+<script type="application/x-javascript" src="chrome://mm/content/tools/map.js"/>
+
+    <command id="File:Exit" oncommand="quit(false)"/>
+    <command id="Settings:Exports" oncommand="setupExports()"/>
+    
+    <label value="&exit_confirm;" style="display:none" id="exit-confirm"/>
+    
+    <toolbar id="main-toolbar">
+        <toolbarbutton label="&menu.settings.label;" command="Settings:Exports"/>
+        <toolbarbutton label="&menu_file.exit.label;" command="File:Exit"/>
+    </toolbar>
+	<databases id="databases"/>
+	<market-exports id="market-exports"/>
+	<hbox flex="1">
+		<vbox flex="1">
+			<label value="&reg.label;" />
+			<textbox id="region-name" ontextentered="loadRegion()" forceComplete="true"
+					 type="autocomplete" autocompletesearch="simple-autocomplete"
+					 completedefaultindex="true"/>
+			<hbox>
+				<textbox id="range" width="30px"/>
+				<label value="&jumps.label;" />
+			</hbox>
+			<label value="&highest.label;"/>
+			<label id="max-price" />
+			<tree id="goods-tree" flex="1" hidecolumnpicker="true">
+				<treecols>
+					<treecol id="item" label="Goods" flex="100"/>
+				</treecols>
+				
+				<treechildren />
+			</tree>
+		</vbox>
+		<splitter />
+		<stack id="reg-container" flex="10"
+			   onmouseover="mouseIsOver=true"
+	           onmouseout="mouseIsOver=false">
+			<svg:svg id="reg-map-holder"/>
+		</stack>
+	</hbox>
+    <hbox>
+        <spacer flex="1"/>
+        <label id="status"/>
+    </hbox>
+</window>
+

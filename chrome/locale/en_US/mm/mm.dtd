@@ -1,0 +1,20 @@
+<!ENTITY title "Market Maps">
+
+<!ENTITY menu.file.label "File">
+<!ENTITY menu.file.accesskey "F">
+<!ENTITY menu_file.exit.label "Exit">
+<!ENTITY menu_file.exit.accesskey "x">
+
+<!ENTITY menu.settings.label "Settings">
+<!ENTITY menu.settings.accesskey "S">
+
+<!ENTITY exports.title "Choose market exports directory">
+<!ENTITY exports.browse "Browse...">
+
+<!ENTITY reg.label "Region">
+<!ENTITY jumps.label "jumps">
+<!ENTITY highest.label "Highest">
+
+<!ENTITY highest.tooltip "Highest price in selected area">
+
+<!ENTITY exit_confirm "Really quit Market Map?">
