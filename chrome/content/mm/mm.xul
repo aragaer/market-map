@@ -34,7 +34,7 @@
 		<vbox flex="1">
 			<label value="&reg.label;" />
 			<textbox id="region-name" ontextentered="loadRegion()" forceComplete="true"
-					 type="autocomplete" autocompletesearch="simple-autocomplete"
+					 type="autocomplete" autocompletesearch="region-autocomplete"
 					 completedefaultindex="true"/>
 			<hbox>
 				<textbox id="range" width="30px"/>

@@ -43,9 +43,6 @@ function mapOnLoad() {
 	StarMapHolder.setAttribute('height', cont.boxObject.height);
 	
 	GoodsTree.addEventListener('select', onGoodsSelect, true);
-	
-	RegionName.setAttribute('autocompletesearchparam',
-			DB.doSelectQuery('select regionName from mapRegions;').join(','));
 }	
 
 function doCleanUp() {
@@ -104,10 +101,10 @@ function loadRegion() {
 			});
 	
 	DB.doSelectQuery('select f.solarSystemName, t.solarSystemName '
-				+'from mapSolarSystemJumps '
+				+'from mapSolarSystemJumps as j '
 				+'left join mapSolarSystems as f on fromSolarSystemID=f.solarSystemID '
 				+'left join mapSolarSystems as t on toSolarSystemID=t.solarSystemID '
-				+'where fromRegionID="'+reg+'" and toRegionID="'+reg+'";',
+				+'where j.regionID='+reg+';',
 			processLinks);
 	
 	var transform = StarMap.getAttribute('transform');
